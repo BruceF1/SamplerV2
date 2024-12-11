@@ -1,0 +1,129 @@
+/* Button styles */
+button.neumorphicfunction {
+    background: #e0e0e0;
+    border: none;
+    border-radius: 50%; /* Makes the button round */
+    box-shadow: 5px 5px 10px #bebebe, -5px -5px 10px #ffffff;
+    width: 30px; /* Set button width */
+    height: 30px; /* Set button height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+  
+   button.neumorphicfunction:focus {
+    outline: none;
+  }
+  
+  button.neumorphicfunction:focus i {
+    color: red;
+  }
+  
+  button.neumorphicfunction i {
+    font-size: 24px;
+    color: #333;
+  }
+  
+button.neumorphic {
+  aspect-ratio: 1 / 1;
+	background: #2f2f2f;
+	border: none;
+	padding: 10px 20px;
+	font-size: 14px;
+	border-radius: 4px;
+	color: #c4c4c4;
+	box-shadow:
+		1px 1px 5px #000,
+		-1px -1px 5px #6f6f6f,
+		inset 1px 1px 5px #2b2b2b,
+		inset -1px -1px 5px #424242;
+	transition: all 0.05s;
+}
+button.neumorphic:after{
+  content: '';
+	position: absolute;
+	top: 2px;
+	left: 2px;
+	width: calc(100% - 4px);
+	height: 50%;
+  opacity: 5%;
+	background: linear-gradient(rgba(255, 255, 255, 0.144), rgba(255,255,255,0.2));
+}
+
+button.neumorphic:focus{
+  outline: none;
+}
+
+button.neumorphic:active{
+  outline: none;
+  box-shadow: 0px 0px 20px 2px #ffbd66;
+  background: linear-gradient(rgb(255, 189, 102), rgb(255, 204, 95));
+}
+
+button.neumorphic.active {
+  box-shadow: 0px 0px 20px 2px #ffbd66;
+  background: linear-gradient(rgb(255, 189, 102), rgb(255, 204, 95));
+}
+
+.jumbotron {
+  padding: 2rem 1rem;
+  margin-bottom: 0rem !important;
+  background-color: #e9ecef;
+  border-radius: .3rem;
+}
+
+.button_area{
+  border-radius: 10px;
+  background-color: #808080;
+  box-shadow: 0px 1px 0px rgba(255,255,255,.3), 0px -1px 0px rgba(97, 97, 97, 0.7);
+  background: linear-gradient(21deg, rgb(63, 63, 63) 0%, rgb(134, 134, 134) 66%, rgb(110, 110, 110) 100%);
+}
+
+.collapsable{
+  outline: none !important;
+  border: none !important;
+  height: 20px !important;
+  background-color: white !important;
+  width: 100% !important;
+  text-align: left !important;
+}
+
+.makeshadow{
+  box-shadow: 5px 5px 10px #bebebe, -5px -5px 10px #ffffff;
+}
+
+html{
+  height: 100%;
+}
+
+body{
+
+  background: rgb(134,134,134);
+  background: linear-gradient(21deg, rgb(177, 177, 177) 0%, rgba(255,255,255,1) 66%, rgba(217,249,255,1) 100%);
+}
+
+.cd__main {
+  background-color: #e5e9f4 !important;
+  padding: 2rem;
+}
+h1 {
+  text-align: center;
+  color: hsl(0 0% 10%);
+  font-family: system-ui, sans-serif;
+  font-size: 3rem;
+  margin-bottom: 30px;
+}
+.buttons {
+  display: grid;
+  width: min(75rem, 100%);
+  margin-inline: auto;
+  grid-template-columns: repeat(auto-fit, minmax(min(8rem, 100%), 1fr));
+  gap: 2rem;
+}
+
+.set {
+    max-width: 200px;
+    max-height: 200px;
+  }

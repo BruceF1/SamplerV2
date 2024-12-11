@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Sampler</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" 
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <div class="jumbotron text-center">
+    <h1>Spectrometer</h1>
+    <p>Resizable</p>
+  </div>
+
+  <div class="col d-flex flex-row py-2 makeshadow">
+    <button class="neumorphicfunction mx-1" id="recordButton">
+      <i class="fa-solid fa-record-vinyl"></i>
+    </button>
+    <button class="neumorphicfunction mx-1" id="pauseButton">
+      <i class="fa-solid fa-pause"></i>
+    </button>
+    <button class="neumorphicfunction mx-1" id="stopButton">
+      <i class="fa-solid fa-stop"></i>
+    </button>
+  </div>
+
+  <button type="button" class="collapsible" id="formats">
+    Format: start recording to see sample rate
+  </button>
+  <div class="content">
+    <p><strong>Recordings:</strong></p>
+    <ol id="recordingsList"></ol>
+  </div>
+  
+  <div class="button_area container py-5 my-5">
+    <div class="d-flex flex-row">
+      <button id="play-button" data-key="q" onclick="playSample('q')" type="button" class="col mx-auto my-3 neumorphic set">
+        <h3>Q</h3>
+        <p>Add file</p>
+      </button>
+      <button id="play-button" data-key="w" onclick="playSample('w')" type="button" class="col mx-auto my-3 neumorphic set">
+        <h3>W</h3>
+        <p>Add file</p>
+      </button>
+      <button id="play-button" data-key="e" onclick="playSample('e')" type="button" class="col mx-auto my-3 neumorphic set">
+        <h3>E</h3>
+        <p>Add file</p>
+      </button>
+      <button id="play-button" data-key="r" onclick="playSample('r')" type="button" class="col mx-auto my-3 neumorphic set">
+        <h3>R</h3>
+        <p>Add file</p>
+      </button>
+    </div>
+    <div class="d-flex flex-row">
+      <button id="play-button" data-key="a" onclick="playSample('a')" type="button" class="col mx-auto my-3 neumorphic set">
+        <h3>A</h3>
+        <p>Add file</p>
+      </button>
+      <button id="play-button" data-key="s" onclick="playSample('s')" type="button" class="col mx-auto my-3 neumorphic set">
+        <h3>S</h3>
+        <p>Add file</p>
+      </button>
+      <button id="play-button" data-key="d" onclick="playSample('d')" type="button" class="col mx-auto my-3 neumorphic set">
+        <h3>D</h3>
+        <p>Add file</p>
+      </button>
+      <button id="play-button" data-key="f" onclick="playSample('f')" type="button" class="col mx-auto my-3 neumorphic set">
+        <h3>F</h3>
+        <p>Add file</p>
+      </button>
+    </div>
+    <div class="d-flex flex-row">
+      <button id="play-button" data-key="z" onclick="playSample('z')" type="button" class="col mx-auto my-3 neumorphic set">
+        <h3>Z</h3>
+        <p>Add file</p>
+      </button>
+      <button id="play-button" data-key="x" onclick="playSample('x')" type="button" class="col mx-auto my-3 neumorphic set">
+        <h3>X</h3>
+        <p>Add file</p>
+      </button>
+      <button id="play-button" data-key="c" onclick="playSample('c')" type="button" class="col mx-auto my-3 neumorphic set">
+        <h3>C</h3>
+        <p>Add file</p>
+      </button>
+      <button id="play-button" data-key="v" onclick="playSample('v')" type="button" class="col mx-auto my-3 neumorphic set">
+        <h3>V</h3>
+        <p>Add file</p>
+      </button>
+    </div>
+  <script src="js/index.js"></script>
+  <script src="js/recorder.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
