@@ -1,110 +1,78 @@
-// var coll = document.getElementsByClassName("collapsible");
-// var i;
+// Function to handle mouse down event on buttons
+function handleMouseDown() {
+  this.classList.add("active"); 
+  playSample(this.getAttribute('data-key'));
+}
 
-// for (i = 0; i < coll.length; i++) {
-//   coll[i].addEventListener("click", function() {
-//     this.classList.toggle("active");
-//     var content = this.nextElementSibling;
-//     if (content.style.display === "block") {
-//       content.style.display = "none";
-//     } else {
-//       content.style.display = "block";
-//     }
-//   });
-// }
+// Function to handle mouse up event on buttons
+function handleMouseUp() {
+  this.classList.remove("active"); 
+  stopSample(this.getAttribute('data-key'));
+}
 
+// Add mouse event listeners to buttons
 document.querySelectorAll('button').forEach(button => {
-  button.addEventListener("mousedown", function() {
-    this.classList.add("active"); 
-    playSample(this.getAttribute('data-key')); 
-  });
-
-  button.addEventListener("mouseup", function() {
-    this.classList.remove("active"); 
-    stopSample(this.getAttribute('data-key')); 
-  });
-
-  // button.addEventListener("mouseleave", function() {
-  //   this.classList.remove("active"); // In case the user drags the mouse off the button
-  //   stopSample(this.getAttribute('data-key')); // Stop the sample
-  // });
+  button.addEventListener("mousedown", handleMouseDown);
+  button.addEventListener("mouseup", handleMouseUp);
+  // button.addEventListener("mouseleave", () => stopSample(button.getAttribute('data-key')));
 });
 
-document.addEventListener("keydown", function(event) {
+// Keyboard event listeners for keydown and keyup
+document.addEventListener("keydown", event => {
   playSample(event.key);
-  buttonAnimation(event.key);
+  buttonAnimation(event.key);  // Assuming this function exists elsewhere
 });
 
-document.addEventListener("keyup", function(event) {
+document.addEventListener("keyup", event => {
   stopSample(event.key);
 });
 
+// Object to store loaded sound files
 const sounds = {};
 
+// Function to play a sound sample based on a key
 function playSample(key) {
   const button = document.querySelector(`button[data-key="${key}"]`);
-  if (button) {
-    button.classList.add("active");
-  }
+  if (button) button.classList.add("active");  // Add active class to the button
 
-  if (!sounds[key]) { 
-    let sound;
-    switch (key) {
-      case "w":
-        sound = "sounds/dubstep-kick.wav";
-        break;
-      case "q":
-        sound = "sounds/dubstep-snare.wav";
-        break;
-      case "e":
-        sound = "sounds/dubstep-short-hi-hat.wav";
-        break;
-      case "r":
-        sound = "sounds/dubstep-kick-237919.wav";
-        break;
-      case "a":
-        sound = "sounds/dubstep-saw-237922.wav";
-        break;
-      case "s":
-        sound = "sounds/dubstep-growl-83961.wav";
-        break;
-      case "d":
-        sound = "sounds/dubstep-soft-growl-45931.wav";
-        break;
-      case "f":
-        sound = "sounds/dubstep-beat_150-104072.wav";
-        break;
-      case "z":
-        sound = "sounds/dubstep-wobble-140bpm-106360.wav";
-        break;
-      case "x":
-        sound = "sounds/neuro-bass-stab-104501.wav";
-        break;
-      case "c":
-        sound = "sounds/dry-wobbles-one-note-47903.wav";
-        break;
-      case "v":
-        sound = "sounds/rhythmic-noise-30775.wav";
-        break;
-    }
-
+  if (!sounds[key]) {  // Check if the sound has already been loaded
+    const sound = getSoundFile(key);
     if (sound) {
       sounds[key] = new Audio(sound);
-      sounds[key].loop = true; 
+      sounds[key].loop = true;  // Loop the sound
       sounds[key].play();
     }
   }
 }
 
+// Function to get the sound file corresponding to the key
+function getSoundFile(key) {
+  const soundMap = {
+    "w": "sounds/dubstep-kick.wav",
+    "q": "sounds/dubstep-snare.wav",
+    "e": "sounds/dubstep-short-hi-hat.wav",
+    "r": "sounds/dubstep-kick-237919.wav",
+    "a": "sounds/dubstep-saw-237922.wav",
+    "s": "sounds/dubstep-growl-83961.wav",
+    "d": "sounds/dubstep-soft-growl-45931.wav",
+    "f": "sounds/dubstep-beat_150-104072.wav",
+    "z": "sounds/dubstep-wobble-140bpm-106360.wav",
+    "x": "sounds/neuro-bass-stab-104501.wav",
+    "c": "sounds/dry-wobbles-one-note-47903.wav",
+    "v": "sounds/rhythmic-noise-30775.wav"
+  };
+  
+  return soundMap[key] || null;  // Return the corresponding sound file or null if key isn't mapped
+}
+
+// Function to stop the sound sample for a key
 function stopSample(key) {
   const button = document.querySelector(`button[data-key="${key}"]`);
-  if (button) {
-    button.classList.remove("active");
-  }
+  if (button) button.classList.remove("active");  // Remove active class
 
   if (sounds[key]) {
-    sounds[key].pause();            
-    sounds[key].currentTime = 0;    
-    delete sounds[key];             
+    sounds[key].pause();  // Pause the sound
+    sounds[key].currentTime = 0;  // Reset the sound to the beginning
+    delete sounds[key];  // Remove the sound from memory
   }
 }
