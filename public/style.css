@@ -1,3 +1,143 @@
+/*globals*/
+
+html, body {
+  margin: 0; /* Remove default margin */
+  min-height: 100vh; /* Full viewport height */
+  background-image: url("src/background.jpg");
+  /* background: rgb(224,225,227);
+  background: linear-gradient(45deg, rgba(224,225,227,1) 0%, rgba(154,158,161,1) 100%); */
+}
+
+.cd__main {
+  background-color: #e5e9f4 !important;
+  padding: 2rem;
+}
+h1 {
+  text-align: center;
+  color: hsl(0 0% 10%);
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: 700;
+  font-size: 9rem;
+  letter-spacing: -1rem;
+}
+h2{text-transform: uppercase;
+text-align: center;
+color: #f88616;
+font-family: "IBM Plex Sans", sans-serif;
+font-weight: 700;
+letter-spacing: -.1rem;
+font-size: 17px !important;
+}
+.buttons {
+  display: grid;
+  width: min(75rem, 100%);
+  margin-inline: auto;
+  grid-template-columns: repeat(auto-fit, minmax(min(8rem, 100%), 1fr));
+  gap: 2rem;
+}
+
+.panel {
+  background-image: url("src/plasticbackground.jpg");
+  display: block;
+  border-width: 0.5px;
+  border-style: solid;
+  border-color: #22232482;
+  /* background: rgb(215, 219, 222);
+  background: linear-gradient(45deg, rgba(215, 219, 222, 1) 0%, rgba(198, 200, 201, 1) 73%, rgba(148, 148, 148, 1) 100%); */
+  border-radius: 6px;
+  color: #a7a7a7;
+  padding: 20px;
+  position: relative;
+  text-align: center;
+  line-height: 144px;
+  /* box-shadow: 0px 1px 2px #2b2b2b, inset 0px 2px 3px #9f9f9f;*/
+  }
+
+/*fonts*/
+.ibm-plex-sans-thin {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.ibm-plex-sans-extralight {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+}
+
+.ibm-plex-sans-light {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.ibm-plex-sans-regular {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.ibm-plex-sans-medium {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.ibm-plex-sans-semibold {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.ibm-plex-sans-bold {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.ibm-plex-sans-thin-italic {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: 100;
+  font-style: italic;
+}
+
+.ibm-plex-sans-extralight-italic {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: 200;
+  font-style: italic;
+}
+
+.ibm-plex-sans-light-italic {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.ibm-plex-sans-regular-italic {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.ibm-plex-sans-medium-italic {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.ibm-plex-sans-semibold-italic {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.ibm-plex-sans-bold-italic {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
 /* Button styles */
 button.neumorphicfunction {
     background: #e0e0e0;
@@ -28,18 +168,16 @@ button.neumorphicfunction {
   
 button.neumorphic {
   aspect-ratio: 1 / 1;
-	background: #2f2f2f;
-	border: none;
-	padding: 10px 20px;
-	font-size: 14px;
-	border-radius: 4px;
-	color: #c4c4c4;
-	box-shadow:
-		1px 1px 5px #000,
-		-1px -1px 5px #6f6f6f,
-		inset 1px 1px 5px #2b2b2b,
-		inset -1px -1px 5px #424242;
-	transition: all 0.05s;
+  background: #2f2f2f;
+  border: #1c1c1c;
+  border-width: 1px;
+  border-style: solid;
+  padding: 10px 20px;
+  font-size: 14px;
+  border-radius: 4px;
+  color: #c4c4c4;
+  box-shadow: -7px 9px 11px 8px rgb(104, 107, 109), inset 1px 1px 5px #2b2b2b, inset -1px -1px 5px #424242;
+  transition: all 0.05s;
 }
 button.neumorphic:after{
   content: '';
@@ -49,7 +187,7 @@ button.neumorphic:after{
 	width: calc(100% - 4px);
 	height: 50%;
   opacity: 5%;
-	background: linear-gradient(rgba(255, 255, 255, 0.144), rgba(255,255,255,0.2));
+	background: linear-gradient(rgba(255, 255, 255, 0.144), rgba(255,255,255,0.5));
 }
 
 button.neumorphic:focus{
@@ -70,7 +208,7 @@ button.neumorphic.active {
 .jumbotron {
   padding: 2rem 1rem;
   margin-bottom: 0rem !important;
-  background-color: #e9ecef;
+  background-color: #202020;
   border-radius: .3rem;
 }
 
@@ -90,40 +228,132 @@ button.neumorphic.active {
   text-align: left !important;
 }
 
+/*Effects*/
+
 .makeshadow{
-  box-shadow: 5px 5px 10px #bebebe, -5px -5px 10px #ffffff;
+  box-shadow: -11px 10px 48px 5px rgba(0,0,0,0.75);
 }
 
-html{
-  height: 100%;
-}
-
-body{
-
-  background: rgb(134,134,134);
-  background: linear-gradient(21deg, rgb(177, 177, 177) 0%, rgba(255,255,255,1) 66%, rgba(217,249,255,1) 100%);
-}
-
-.cd__main {
-  background-color: #e5e9f4 !important;
-  padding: 2rem;
-}
-h1 {
-  text-align: center;
-  color: hsl(0 0% 10%);
-  font-family: system-ui, sans-serif;
-  font-size: 3rem;
-  margin-bottom: 30px;
-}
-.buttons {
-  display: grid;
-  width: min(75rem, 100%);
-  margin-inline: auto;
-  grid-template-columns: repeat(auto-fit, minmax(min(8rem, 100%), 1fr));
-  gap: 2rem;
+.lines {
+  border-top: #f88616;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-bottom: #f88616;
+  border-bottom-width: 7px;
+  border-bottom-style: solid;
+  margin:0  !important;
+  padding:0 !important;
 }
 
 .set {
     max-width: 200px;
     max-height: 200px;
   }
+
+  .edgeborder{
+    border-color: #000;
+    border-style: solid;
+  }
+  
+/* :root {
+  --dark-gray: #323a3d;
+  --light-gray: #d7dbde;
+  --yellow-accent: #f88616;
+  --normal-gray: #4d5248;
+  --dark-orange: #c83d14;
+  --charcoal-app: #19181d;
+  --pink: #e33348;
+  --black: #050409;
+  --med-gray: #6c6d68;
+  --khaki: #c79d75;
+} */
+
+:root
+{
+  --ring-width: 20%;
+  --ring-space: 20%;
+  --accent: #f88616;
+}
+
+
+
+/*Knob */
+#app
+{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.knob-container
+{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 50px; height: 50px;
+}
+
+.ring
+{
+  position: absolute;
+  border-radius: 139px;
+  background: conic-gradient(145deg, #f0f0f0, #cacaca);
+  box-shadow: 6px 6px 20px #a4a4a4, -6px -6px 20px #ffffff;
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+}
+
+.ring-fill
+{
+  position: absolute;
+  background: conic-gradient(var(--accent) 140deg, rgba(255,255,255,0.0) 0 360deg, var(--accent) 0deg);
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+}
+
+.space
+{
+  position: absolute;
+  border-radius: 139px;
+  background: linear-gradient(145deg, #f0f0f0, #cacaca);
+  box-shadow: 0 15px 25px -4px rgba(0, 0, 0, 0.5), inset 0 -3px 4px -1px rgba(0, 0, 0, 0.2), 0 -10px 15px -1px rgba(255, 255, 255, 0.6), inset 0 3px 4px -1px rgba(255, 255, 255, 0.2), inset 0 0 5px 1px rgba(255, 255, 255, 0.8), inset 0 20px 30px 0 rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  width: calc((100%) - var(--ring-width));
+  height: calc((100%) - var(--ring-width));
+}
+
+.knob
+{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+
+  border-radius: 50%;
+  width: calc((100%) - (var(--ring-width) + var(--ring-space)));
+  height: calc((100%) - (var(--ring-width) + var(--ring-space)));
+}
+
+.knob-indicator-container
+{
+  display: flex;
+  justify-content: center;
+  width: 100%; height: 100%;
+  transform: rotate(140deg);
+}
+
+.knob-indicator
+{
+  border-radius: 30%;
+  background: #f88616;
+  width: 9%; height: 35%;
+  margin-top: 4%;
+}
+
+.testblock{
+  background-color: orangered;
+}

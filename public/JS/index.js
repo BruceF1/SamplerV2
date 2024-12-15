@@ -76,3 +76,57 @@ function stopSample(key) {
     delete sounds[key];  // Remove the sound from memory
   }
 }
+
+
+//VolumeKnob
+var knob = document.querySelector("#knob1 .knob-indicator-container");
+var ring = document.querySelector("#knob1 .ring-fill");
+
+knob.onpointerdown = OnPointerDown;
+
+var startY = 0;
+var currentY = 0;
+var lastRot = 140;
+
+var maxRot = 140;
+var speed = 1.5;
+
+function OnPointerDown(event)
+{
+  document.addEventListener('pointermove', OnPointerMove);
+  document.addEventListener('pointerup', OnPointerUp);
+  
+  startY = event.clientY;
+}
+
+function OnPointerMove(event)
+{
+  delta = startY - event.clientY;
+  
+  currentY = lastRot + delta * speed;
+  
+  if(currentY > maxRot)
+
+    currentY = maxRot;
+  
+  if(currentY < -maxRot)
+
+    currentY = -maxRot;
+  
+  knob.style.transform = "rotate(" + currentY + "deg)";
+  
+  if(currentY > 0)
+    ring.style.background = "conic-gradient(var(--accent) " + currentY + "deg, rgba(255,255,255,0.0) 0 360deg, var(--accent) 0deg)";
+  
+  else
+    ring.style.background = "conic-gradient(var(--accent) 0deg, rgba(255,255,255,0.0) 0 " + (360 + currentY) + "deg, var(--accent) 0deg)";
+}
+
+function OnPointerUp(event)
+{
+  lastRot = currentY;
+  
+  document.removeEventListener('pointermove', OnPointerMove);
+  document.removeEventListener('pointerup', OnPointerUp);
+}
+s
